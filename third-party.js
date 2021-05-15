@@ -32,11 +32,12 @@ function callAPI() {
 
     for(const center = 0; center <= data.centers.length; center++) {
       const sessions = data.centers[center].sessions;
+      const name = data.centers[center].name;
       for(const session = 0; session <= sessions.length; session++) {
         const facility = sessions[session];
         if(facility.available_capacity > 0) {
           document.getElementById("message").style.color = 'green';
-          document.getElementById("message").innerText = "VACCINE AVAILABLE";
+          document.getElementById("message").innerText = "VACCINE AVAILABLE in " + name;
           console.log("AVAIL")
           beep();
           return;
