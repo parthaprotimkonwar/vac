@@ -35,7 +35,8 @@ function callAPI() {
       const name = data.centers[center].name;
       for(const session = 0; session <= sessions.length; session++) {
         const facility = sessions[session];
-        if(facility.available_capacity > 0) {
+        if(facility.available_capacity > 0 || facility.available_capacity_dose1 >0 ||
+          facility.available_capacity_dose2 >0) {
           document.getElementById("message").style.color = 'green';
           document.getElementById("message").innerText = "VACCINE AVAILABLE in " + name;
           console.log("AVAIL")
@@ -87,7 +88,7 @@ $(document).ready(function () {
   var intervalId = window.setInterval(function(){
     /// call your function here
     callAPI();
-  }, 30000);
+  }, 10000);
   
 });
 
